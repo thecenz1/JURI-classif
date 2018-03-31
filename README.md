@@ -35,10 +35,14 @@ To start with, we use the preprocessing count matrix to map the most frequent wo
 
 We then apply a TFIDF/IDF wchi will allow to give more importance to words of low frequency but high-meaning by applying the following formula on the matrix weighs :
 
-TFIDFi,j = ( Ni,j / N*,j ) * log( D / Di ) where
+TFIDFi,j = ( Ni,j / N*,j ) * log( D / Di ) where:
+
 Ni,j = the number of times word i appears in document j (the original cell count).
+
 N*,j = the number of total words in document j (just add the counts in column j).
+
 D = the number of documents (the number of columns).
+
 Di = the number of documents in which word i appears (the number of non-zero columns in row i).
 
 Before the clustering, we run first a Latent Semantic Analysis algorithm (using Singular Value Decomposition) which will allow us a dimension reduction of the occurrence matrix.  The computational resources needed will be vastly reduced this way.
@@ -62,12 +66,13 @@ A quick look at the top terms in each cluster is showing a clustering of documen
 
 ### 3) Potential improvements:
 
-1) lsa=256
-2) change the minibatch inertia converging
-3) introduce the 2 step kmeans clustering, starting with local centroids, then global centroid so we get a better initial spatial partition between centroids. 
-3.2) Use DBSCAN/HDBSCAN instead of kmeans
-4) Silhouette coefficient with Linear Discriminant analysis.
-5) Compare with hierarchical clustering
-6) SOM/Neural gas
+- lsa=256
+- change the minibatch inertia converging
+- introduce the 2 step kmeans clustering, starting with local centroids, then global centroid so we get a better initial spatial partition between centroids. 
+- use DBSCAN/HDBSCAN instead of kmeans
+- 
+- silhouette coefficient with Linear Discriminant analysis.
+- compare with hierarchical clustering
+- SOM/Neural gas
 
 
